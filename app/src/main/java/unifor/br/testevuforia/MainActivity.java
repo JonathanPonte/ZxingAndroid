@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Bitmap bitMap = encodeToQrCode("" , 100, 100);
+        Bitmap bitMap = encodeToQrCode("Tiozão" , 100, 100);
 
 
         image.setImageBitmap(bitMap);
