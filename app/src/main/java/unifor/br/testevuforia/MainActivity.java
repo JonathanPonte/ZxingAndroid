@@ -1,8 +1,10 @@
 package unifor.br.testevuforia;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Camera;
 import android.graphics.Color;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -11,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button scan_button;
     private ImageView image;
+    public static TextView result;
+
 
 
     @Override
@@ -38,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         scan_button = (Button) findViewById(R.id.scanner_button);
         image = (ImageView) findViewById(R.id.ImageQR);
+        result = (TextView) findViewById(R.id.results);
+
         final Activity activity = this;
 
 
@@ -45,13 +52,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                IntentIntegrator integrator = new IntentIntegrator(activity);
-                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-                integrator.setPrompt("Scan");
-                integrator.setCameraId(0);
-                integrator.setBeepEnabled(false);
-                integrator.setBarcodeImageEnabled(false);
-                integrator.initiateScan();
+//                IntentIntegrator integrator = new IntentIntegrator(activity);
+//                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+//                integrator.initiateScan();
+//                integrator.setPrompt("Scan");
+//                integrator.setCameraId(0);
+//                integrator.setBeepEnabled(true);
+//                integrator.setBarcodeImageEnabled(true);
+//                integrator.initiateScan();
+
+
+
+               startActivity(new Intent(getApplicationContext(), ScanCodeActivity.class));
 
 
             }
